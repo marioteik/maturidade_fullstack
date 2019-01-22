@@ -1,0 +1,29 @@
+<div class="text-muted" *ngIf="!list || list.length === 0">
+    {{ noItemMsg }}
+</div>
+
+<ul class="media-list" *ngIf="list?.length > 0">
+    <li class="media" *ngFor="let item of list; trackBy: trackByFunction">
+        <div class="mr-3 position-relative" [hidden]="!item.icon || !item.image">
+            <img [src]="item.image" [width]="item.height || '20px'" [height]="item.height || '20px'"
+                 class="rounded-circle" alt="" [hidden]="!item.image">
+            <span class="btn bg-success-400 btn-rounded btn-icon btn-xs" [hidden]="!item.icon">
+                <i [class]="item.icon"></i>
+            </span>
+        </div>
+
+        <div class="media-body">
+            <div class="media-title" [hidden]="!item.title">
+                <span class="font-weight-semibold">{{item.title}}</span>
+                <!--span class="text-muted float-right font-size-sm">04:58</span-->
+            </div>
+
+            <span [hidden]="!item.description">{{item.description}}</span>
+
+            <span class="text-muted mt-1" [hidden]="!item.subdescription">
+                <i [class]="item.iconSubdescription" [hidden]="!item.iconSubdescription"></i>
+                {{ item.subdescription }}
+            </span>
+        </div>
+    </li>
+</ul>

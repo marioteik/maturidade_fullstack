@@ -1,0 +1,68 @@
+.datatable-header-component {
+    padding: 1.25rem 1.25rem 0 1.25rem;
+    border-bottom: 1px solid #ddd;
+
+    div:first-child {
+        margin-left: 0 !important;
+    }
+
+    div:last-child {
+        margin-right: 0 !important;
+    }
+
+    .dataTables_filter {
+        position: relative;
+        display: block;
+        float: left;
+        margin: 0 0 1.25rem 1.25rem;
+
+        > label {
+            margin-bottom: 0;
+            position: relative;
+
+            > span {
+                float: left;
+                margin: .5rem .83333rem;
+                margin-left: 0;
+            }
+
+            &:after {
+                content: "\e98e";
+                font-family: icomoon;
+                font-size: .75rem;
+                display: inline-block;
+                position: absolute;
+                top: 43%;
+                right: .875rem;
+                margin-top: -.375rem;
+                line-height: 1;
+                opacity: .5;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+
+        input {
+            outline: 0;
+            width: 12.5rem;
+            padding: .4375rem .875rem;
+            padding-right: 2rem;
+            font-size: .8125rem;
+            line-height: 1.5385;
+            color: #333;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: .1875rem;
+        }
+    }
+
+    .dataTables_length {
+        >label {
+            > span:first-child {
+                float: left;
+                margin: .5rem .83333rem;
+                margin-left: 0;
+            }
+        }
+    }
+}

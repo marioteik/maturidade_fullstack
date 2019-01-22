@@ -1,0 +1,87 @@
+:host {
+    .select2-hidden-accessible {
+        border: 0!important;
+        clip: rect(0 0 0 0)!important;
+        height: 1px!important;
+        margin: -1px!important;
+        overflow: hidden!important;
+        padding: 0!important;
+        position: fixed!important;
+        width: 1px!important;
+    }
+
+    select {
+        height: 2.25003rem;
+        padding: .4375rem .875rem;
+        font-size: .8125rem;
+        line-height: 1.5385;
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        outline: 0;
+    }
+
+    .select2-container {
+        outline: 0;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+
+    .select2-selection--single {
+        cursor: pointer;
+        outline: 0;
+        display: block;
+        padding: .4375rem 0;
+        line-height: 1.5385;
+        color: #333;
+        position: relative;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border-radius: .1875rem;
+        transition: all ease-in-out .15s;
+
+        &:not([class*=bg-]) {
+            background-color: #fff;
+        }
+
+        &:not([class*=bg-]):not([class*=border-]) {
+            border-color: #ddd;
+        }
+
+        .select2-selection__rendered {
+            display: block;
+            padding-left: .875rem;
+            padding-right: 2.375rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .select2-selection__arrow {
+            b {
+                display: none;
+            }
+
+            &:after {
+                content: '\e9c5';
+                font-family: icomoon;
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                right: .875rem;
+                margin-top: -.5rem;
+                font-size: 1rem;
+                line-height: 1;
+                color: inherit;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+<tk-card>
+    <tk-card-header>
+        <tk-card-title>
+            Adicionar {{ entity?.name }}
+        </tk-card-title>
+    </tk-card-header>
+
+    <tk-card-body class="d-sm-flex align-items-sm-center justify-content-sm-between flex-sm-wrap">
+        Abaixo está o formulário de cadastro para os itens da entidade.
+    </tk-card-body>
+
+    <form [formGroup]="entityForm" (ngSubmit)="onSubmit()" class="clearfix" *ngIf="entityForm">
+
+        <tk-card-body>
+            <fieldset class="">
+                <legend class="font-weight-semibold">
+                    <i class="icon-paint-format mr-2"></i> Campos do formulário
+                </legend>
+
+                <div *ngFor="let field of entity?.formSchema; let i = index;" class="form-group">
+                    <label for="">{{field.name | titlecase }}</label>
+                    <input class="form-control"
+                           *ngIf="field.formElement === 'input'"
+                           placeholder="{{field.placeholder}}"
+                           type="{{field.type}}"
+                           formControlName="{{controls[i]}}">
+
+                    <!--mat-form-field class="full-width">
+                        <input matInput *ngIf="canShowFormElem(field.type)" placeholder="{{field.name}}" type="{{field.type}}" formControlName="{{controls[i]}}"
+                               [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="entityForm.get(controls[i]).hasError(field.type) && !entityForm.get(controls[i]).hasError('required')">
+                            Campo inválido. Deveria ser {{fiel.type}}.
+                        </mat-error>
+                        <mat-error *ngIf="entityForm.get(controls[i]).hasError('required')">
+                            {{field.name}} é <strong>obrigatório</strong>
+                        </mat-error>
+                    </mat-form-field-->
+                </div>
+            </fieldset>
+        </tk-card-body>
+
+        <tk-card-footer class="w-100 d-inline-flex justify-content-end align-content-center">
+            <div class="mt-2 mt-sm-0">
+                <button type="button" class="btn btn-light" (click)="revert()" [disabled]="entityForm.pristine">
+                    <i class="icon-cross2 mr-2"></i> Resetar
+                </button>
+                <button type="button" class="btn bg-indigo-400 ml-3" type="submit" [disabled]="entityForm.pristine">
+                    <i class="icon-checkmark3 mr-2"></i> {{entityItem?._id ? 'Alterar' : 'Adicionar'}}
+                </button>
+            </div>
+        </tk-card-footer>
+    </form>
+</tk-card>

@@ -1,0 +1,105 @@
+<tk-card>
+    <tk-card-header>
+        Adicionar Entidade
+    </tk-card-header>
+    <form [formGroup]="entityForm" (ngSubmit)="onSubmit()" class="clearfix">
+        <tk-card-body>
+            <div class="row">
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend class="font-weight-semibold">
+                            <i class="icon-cog mr-2"></i> Informações da entidade
+                        </legend>
+
+                        <div class="form-group">
+                            <label>Nome:</label>
+                            <input type="text" class="form-control" formControlName="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Rota:</label>
+                            <input type="text" class="form-control" formControlName="route" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descrição:</label>
+                            <input type="text" class="form-control" formControlName="description">
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="col-md-6">
+                    <fieldset formArrayName="formSchema">
+                        <legend class="font-weight-semibold">
+                            <i class="icon-paint-format mr-2"></i> Campos do formulário
+                        </legend>
+
+                        <ul *ngFor="let field of formSchema.controls; let i=index"
+                            class="media-list media-list-linked"
+                            [formGroupName]="i">
+                            <li class="media bg-light font-weight-semibold py-2 justify-content-between">
+                                Campo #{{i + 1}}
+                                <div class="form-group mb-0">
+                                    <div class="form-check form-check-inline form-check-right">
+                                        <label class="form-check-label font-weight-normal">
+                                            mostrar no datatable
+                                            <div class="uniform-checker">
+                                                <span [ngClass]="{'checked': field.controls.onDatatable.value}">
+                                                    <input type="checkbox" class="form-check-input-styled" formControlName="onDatatable">
+                                                </span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="media">
+                                    <div class="media-body row">
+                                        <div class="form-group col-6">
+                                            <label>Name:</label>
+                                            <input type="text" class="form-control" formControlName="name">
+                                        </div>
+
+                                        <div class="form-group col-3">
+                                            <label>Componente:</label>
+                                            <select class="form-control" formControlName="formElement">
+                                                <ng-container *ngFor="let item of formElements">
+                                                    <option [value]="item">{{item | titlecase}}</option>
+                                                </ng-container>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-3"
+                                             *ngIf="field.controls.formElement.value === 'input'">
+                                            <label>Tipo:</label>
+                                            <select class="form-control" formControlName="type">
+                                                <ng-container *ngFor="let item of inputType">
+                                                    <option [value]="item">{{item | titlecase}}</option>
+                                                </ng-container>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="clear-both left">
+                            <button class="btn btn-light" (click)="addField()" type="button">adicionar campo</button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </tk-card-body>
+        <tk-card-footer class="d-flex justify-content-end align-content-center">
+            <div class="mt-2 mt-sm-0">
+                <button type="button" class="btn btn-light" (click)="revert()" [disabled]="entityForm.pristine">
+                    <i class="icon-cross2 mr-2"></i> Resetar
+                </button>
+                <button type="button" class="btn bg-indigo-400 ml-3" type="submit" [disabled]="entityForm.pristine">
+                    <i class="icon-checkmark3 mr-2"></i> {{entity?._id ? 'Alterar' : 'Adicionar'}}
+                </button>
+            </div>
+        </tk-card-footer>
+    </form>
+</tk-card>

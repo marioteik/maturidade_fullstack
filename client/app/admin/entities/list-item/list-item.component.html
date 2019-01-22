@@ -1,0 +1,76 @@
+<tk-card>
+    <tk-card-header [borderBottom]="false">
+        <tk-card-title>
+            Lista de {{entity?.name}}
+        </tk-card-title>
+    </tk-card-header>
+
+    <tk-card-body class="d-sm-flex align-items-sm-center justify-content-sm-between flex-sm-wrap">
+        Abaixo estão os items cadastrados para a variável {{entity?.name}}.
+
+        <a class="btn bg-secondary" routerLink="add">
+            <i class="icon-add mr-2"></i> Adicionar
+        </a>
+    </tk-card-body>
+
+    <ng-container *ngIf="!entityItemList || entityItemList.length == 0">
+        <tk-card-body class="justify-content-center text-center flex-column p-4">
+            <i class="icon-alert icon-2x text-info border-info border-3 rounded-round p-3 mb-3 flex-grow-0"></i>
+            <h5 class="card-title flex-grow-0">Sem variáveis</h5>
+            <a class="btn bg-info flex-grow-0" routerLink="add">Adicionar <i class="icon-add ml-2"></i></a>
+        </tk-card-body>
+    </ng-container>
+
+    <ng-container *ngIf="entityItemList?.length > 0">
+        <tk-datatable>
+            <tk-datatable-header>
+            </tk-datatable-header>
+
+            <tk-datatable-scroll>
+                <table class="table dataTable no-footer table-lg table-hover table-responsive-md table-striped"
+                       role="grid">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" scope="col" *ngFor="let column of columns">
+                            {{column.name | titlecase}}
+                        </th>
+                        <th class="text-center sorting_disabled col-1" scope="col">
+                            Ações
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr role="row" class="odd" *ngFor="let e of entityItemList">
+                        <td class="sorting_1" *ngFor="let column of columns">{{ handleElementInfo(e, column) }}</td>
+                        <td class="text-center">
+                            <div class="list-icons">
+                                <a class="list-icons-item pointer" routerLink="update/{{e._id}}"><i class="icon-pencil7"></i></a>
+                                <a class="list-icons-item pl-2 pointer" (click)="deleteEntity(e, deleteItemModal)"><i class="icon-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </tk-datatable-scroll>
+
+            <tk-datatable-footer>
+            </tk-datatable-footer>
+        </tk-datatable>
+    </ng-container>
+</tk-card>
+
+<ng-template #deleteItemModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Deletar item {{entityToDelete._id}}</h4>
+        <!--<button type="button" class="close pull-right" aria-label="Close" (click)="deleteModal.hide()">-->
+            <!--<span aria-hidden="true">&times;</span>-->
+        <!--</button>-->
+    </div>
+    <div class="modal-body">
+        Tem certeza que deseja deletar o item {{entityToDelete._id}}?
+    </div>
+    <div class="modal-footer d-flex justify-content-end align-content-center">
+        <button class="btn btn-link" (click)="deleteModal.hide()">Não</button>
+        <button class="btn btn-warning" (click)="confirmDeleteEntity()">Sim</button>
+    </div>
+</ng-template>

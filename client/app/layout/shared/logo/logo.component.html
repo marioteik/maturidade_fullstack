@@ -1,0 +1,8 @@
+<a routerLink="/" *ngIf="logo.image || logo.name" class="d-inline-block">
+    <ng-container *ngIf="logo.image">
+        <img [src]="logo.image" [alt]="logo.alt">
+    </ng-container>
+    <ng-container *ngIf="logo.name">
+        {{logo.name}}
+    </ng-container>
+</a>

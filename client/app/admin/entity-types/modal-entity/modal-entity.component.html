@@ -1,0 +1,33 @@
+<div class="modal-header">
+    <h5 class="modal-title">
+        {{title}}
+    </h5>
+</div>
+<div class="modal-body">
+    <p class="font-weight-semibold text-muted" [hidden]="!message">{{message}}</p>
+    <p [hidden]="!detail">{{detail}}</p>
+</div>
+<div class="modal-footer d-flex justify-content-end align-content-center">
+    <!--div>
+        <button type="button" class="btn btn-link" (click)="goToList()">
+            <i class="icon-arrow-left52 font-size-base mr-1"></i>
+            Voltar à lista
+        </button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-link" (click)="changeVariable()">
+            Alterar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="newEntity()" [hidden]="disableNew">
+            Nova
+        </button>
+    </div-->
+    <div>
+        <button type="button" class="btn btn-link" (click)="changeVariable()">
+            Alterar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="newEntity()">
+            Nova
+        </button>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="page-header page-header-light">
+    <div class="page-header-content header-elements-md-inline">
+        <tk-layout4-page-title></tk-layout4-page-title>
+
+        <div class="header-elements d-none">
+            <div class="d-flex justify-content-center">
+                <span class="btn btn-link btn-float text-default" routerLink="/admin" routerLinkActive="active">
+                    <i class="icon-bars-alt text-primary"></i>
+                    <span>Administrar</span>
+                </span>
+                <!--span class="btn btn-link btn-float text-default">
+                    <i class="icon-calculator text-primary"></i>
+                    <span>Adicionar</span>
+                </span>
+                <span [hidden]="!filterAction" class="btn btn-link btn-float text-default" (click)="toggleFilterSidebar()">
+                    <i class="icon-filter4 text-primary"></i>
+                    <span>Filtrar</span>
+                </span-->
+            </div>
+        </div>
+    </div>
+
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <tk-breadcrumb>
+            </tk-breadcrumb>
+
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+
+        <tk-layout4-second-header-help-menu>
+        </tk-layout4-second-header-help-menu>
+    </div>
+</div>

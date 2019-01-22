@@ -1,0 +1,16 @@
+:host {
+    height: 30px;
+    -ms-grid-row-align: center !important;
+    align-self: center !important;
+    align-content: center !important;
+    justify-content: flex-start !important;
+    display: inline-flex;
+
+    img {
+        height: 30px;
+    }
+
+    a {
+        line-height: 30px;
+    }
+}

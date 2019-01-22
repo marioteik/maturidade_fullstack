@@ -1,0 +1,30 @@
+<div class="nav-item dropdown no-dc" dropdown>
+                <span class="navbar-nav-link dropdown-toggle caret-0" id="notifications"
+                      aria-controls="notifications-dropdown"
+                      dropdownToggle>
+                    <i class="icon-bell2"></i>
+                    <span class="d-md-none ml-2">Notificações</span>
+                    <span class="badge badge-pill bg-warning-400 ml-auto ml-md-0">2</span>
+                </span>
+
+    <div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350"
+         *dropdownMenu
+         role="menu"
+         id="notifications-dropdown"
+         aria-labelledby="notifications">
+        <div class="dropdown-content-header">
+            <span class="font-weight-semibold">Notificações</span>
+            <a href="#" class="text-default"><i class="icon-compose"></i></a>
+        </div>
+
+        <div class="dropdown-content-body dropdown-scrollable">
+            <tk-media-list [list]="notifications" noItemMsg="Não há notificações.">
+            </tk-media-list>
+        </div>
+
+        <div class="dropdown-content-footer justify-content-center p-0">
+            <a href="#" class="bg-light text-grey w-100 py-2" data-popup="tooltip" title=""
+               data-original-title="Load more"><i class="icon-menu7 d-block top-0"></i></a>
+        </div>
+    </div>
+</div>

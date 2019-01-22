@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
+@import 'assets/css/icons/icomoon/styles.css';
+@import 'sass/layouts/layout_5/default/compile/bootstrap';
+@import 'sass/layouts/layout_5/default/compile/bootstrap_limitless';
+@import 'sass/layouts/layout_5/default/compile/layout';
+@import 'sass/layouts/layout_5/default/compile/components';
+@import 'sass/layouts/layout_5/default/compile/colors';
+
+// LAYOUT
+@import 'sass/header';
+
+// STYLE
+@import 'sass/box-model';
+@import 'sass/helpers';
+@import 'sass/buttons';
+@import 'sass/table';
+
+div.breadcrumb-elements-item {
+    display: inline-block;
+    color: inherit;
+    transition: opacity ease-in-out .15s;
+}
+
+tk-root, tk-layout1, tk-layout2, tk-layout3, tk-layout4, tk-layout5 {
+    display: -ms-flexbox;
+    display: flex;
+    flex-flow: column wrap;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}

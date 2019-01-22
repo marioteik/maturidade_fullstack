@@ -1,0 +1,8 @@
+entityForm-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.entityForm-container > * {
+    width: 100%;
+}
